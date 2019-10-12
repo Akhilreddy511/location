@@ -2,7 +2,7 @@ var express = require('express');
 const ipstack = require('ipstack')
 
 var app = express();
-
+const PORT = process.env.PORT || 4000;
 app.use((req) => {
     var ipAddress = (req.ip).split(":");
     var a = ipAddress[ipAddress.length - 1];
@@ -22,6 +22,6 @@ app.get('/', (req, res) => {
     res.send('hello world')
 })
 
-app.listen(6500, () => {
-    console.log('am listen at port no:6500 ')
+app.listen(PORT, () => {
+    console.log(`am listen at port no:${PORT}`)
 })
